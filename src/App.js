@@ -23,6 +23,16 @@ class App extends Component {
     })
   }
 
+  myEventHandler = (event) =>{
+    this.setState ({
+      persons: [
+        {name: 'Zakwan Bhaiyat', age: 25},
+        {name: event.target.value, age: 26},
+        {name: 'Yahya Bhaiyat', age: 27}
+      ]
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -35,7 +45,9 @@ class App extends Component {
           click={this.mySwitchHandler.bind(this, 'Zakku!!')}>I'm getting better at React </Person>
        <Person 
           name = {this.state.persons[1].name} 
-          age ={this.state.persons[1].age} />
+          age ={this.state.persons[1].age} 
+          changed ={this.myEventHandler}
+          />
        <Person 
           name = {this.state.persons[2].name} 
           age = {this.state.persons[2].age} > 
