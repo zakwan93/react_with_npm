@@ -12,17 +12,6 @@ class App extends Component {
     showPersons: false
   }
 
-  mySwitchHandler = (newName) => {
-    // console.log("Was Clicked!");
-    this.setState ({
-      persons: [
-        {name: newName, age: 25},
-        {name: 'Shehjad Bhaiyat', age: 26},
-        {name: 'Yahya Bhaiyat', age: 27}
-      ]
-    })
-  }
-
   myEventHandler = (event) =>{
     this.setState ({
       persons: [
@@ -37,6 +26,13 @@ class App extends Component {
     const doesShow = this.state.showPersons;
     this.setState({showPersons: !doesShow})
   }
+
+  deletePersonHandler = (personIndex) =>{
+    const newPersonsArray = this.state.persons;
+    newPersonsArray.splice(personIndex,1);
+    this.setState({persons: newPersonsArray});
+  }
+
   render() {
     const buttonStyle = {
       backgroundColor: 'white',
@@ -52,26 +48,14 @@ class App extends Component {
         persons =(
         <div>
             {
-              this.state.persons.map(person => {
-                  return <Person 
+              this.state.persons.map((person, index) => {
+                  return <Person
+                      click = {() => {this.deletePersonHandler(index)}}
                       name = {person.name} 
                       age = {person.age}
                   />
               })
             }
-            {/* <Person 
-                name = {this.state.persons[0].name} 
-                age={this.state.persons[0].age} 
-                click={this.mySwitchHandler.bind(this, 'Zakku!!')}>I'm getting better at React </Person>
-            <Person 
-                name = {this.state.persons[1].name} 
-                age ={this.state.persons[1].age} 
-                changed ={this.myEventHandler}
-                />
-            <Person 
-                name = {this.state.persons[2].name} 
-                age = {this.state.persons[2].age} > 
-                I'm learning !</Person> */}
         </div>
         );
     }
