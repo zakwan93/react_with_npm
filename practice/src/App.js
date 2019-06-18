@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Radium, {StyleRoot} from 'radium';
+// import Radium, {StyleRoot} from 'radium';
 import Person from './Person/Person';
 
 class App extends Component {
@@ -60,9 +60,9 @@ class App extends Component {
       border: '1px solid blue',
       padding: '8px',
       cursor: 'pointer',
-      ':hover' :{
-        backgroundColor: 'lightgreen'
-      }
+      // ':hover' :{
+      //   backgroundColor: 'lightgreen'
+      // }
     }
 
     let persons = null;
@@ -84,10 +84,10 @@ class App extends Component {
         </div>
         );
 
-        buttonStyle.backgroundColor = "red";
-        buttonStyle[':hover'] = {
-          backgroundColor: "salmon"
-        }
+        // buttonStyle.backgroundColor = "red";
+        // buttonStyle[':hover'] = {
+        //   backgroundColor: "salmon"
+        // }
     }
 
     const classes = [];
@@ -99,7 +99,7 @@ class App extends Component {
     }
 
     return (
-      <StyleRoot>
+      // <StyleRoot>
          <div className="App">
        <h1> Hi, I'm a React App </h1>
        <p className= {classes.join(" ")} > This is awesome </p>
@@ -109,15 +109,15 @@ class App extends Component {
        </button>
        {persons}
       </div>
-      </StyleRoot>
+      // </StyleRoot> 
      
     );
     // return React.createElement('div',{className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
   }
 }
 
-
-export default Radium(App);
+export default App;
+// export default Radium(App);
 
 // import React, { useState } from 'react';
 // const app = props => {
